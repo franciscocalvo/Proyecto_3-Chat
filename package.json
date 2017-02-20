@@ -1,0 +1,19 @@
+{
+  "name": "proyecto_3-chat",
+  "version": "1.0.0",
+  "description": "Proyecto de clase",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franciscocalvo/Proyecto_3-Chat.git"
+  },
+  "author": "Francisco Javier Calvo Serrano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/franciscocalvo/Proyecto_3-Chat/issues"
+  },
+  "homepage": "https://github.com/franciscocalvo/Proyecto_3-Chat#readme"
+}
