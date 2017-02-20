@@ -2,9 +2,10 @@
   "name": "proyecto_3-chat",
   "version": "1.0.0",
   "description": "Proyecto de clase",
-  "main": "server.js",
+  "main": "./server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./server/server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/franciscocalvo/Proyecto_3-Chat/issues"
   },
-  "homepage": "https://github.com/franciscocalvo/Proyecto_3-Chat#readme"
+  "homepage": "https://github.com/franciscocalvo/Proyecto_3-Chat#readme",
+  "dependencies": {
+    "socket.io": "^1.7.3"
+  }
 }
