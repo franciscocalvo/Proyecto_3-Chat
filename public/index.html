@@ -3,10 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Chat</title>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    
+     <script src="/socket.io/socket.io.js"></script>
+     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
      <script src="./js/main.js" type="text/javascript"></script>
+     <link rel="stylesheet" href="./css/estilo.css">
+     
+     <!-- Latest compiled and minified CSS -->
+     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+     
+     <!-- Optional theme -->
+     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+     
+     <!-- Latest compiled and minified JavaScript -->
+     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <textarea id="mensaje"></textarea>
+   <div class="row">
+       <div class="col-md-12 usuario">
+           <div class="avatar" style="background-image: url(./img/avatar_1.png)"></div>
+           <label class="name_user"></label>
+       </div>
+   </div>
+    <div class="row">
+        <div  class="menu_izq col-md-3">
+         
+          <div class="form-group busqueda">
+            <input type="text" class="form-control buscar" placeholder="Buscar">
+            <div id="ListaUser"></div>
+          </div>
+          
+        </div>
+        <div class="menu_dere col-md-9">
+           <div class="titulo"><h1>Next-Chat</h1></div>
+            <div class="entorno_mensajes col-md-12"></div>
+            <div class="mensaje col-md-12">
+                <button  type="button" class="btn btn-success boton">Enviar</button>
+                <input id="texto" type="text" class="form-control campo_mensaje" placeholder="Escribe aquí tu mensaje">
+                <button  type="button" class="btn btn-warning boton_limpieza">Limpiar</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+
+

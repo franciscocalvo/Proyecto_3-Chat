@@ -1,0 +1,105 @@
+ *{
+    background-color: gainsboro;
+}
+
+
+div.avatar {
+    
+    /* cambia estos dos valores para definir el tamaño del círculo */
+    height: 40px;
+    width: 40px;
+    
+    /* los siguientes valores son independientes al tamaño del círculo */
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 79% auto;
+    box-shadow: 1px 1px 1px;
+}
+
+div#imagen_lista{
+    height: 35px;
+    width: 35px;
+}
+
+div.menu_izq{
+    width: auto;
+    display: inline-flex;
+    padding-left: 21px;
+    padding-right: 1px;
+    
+}
+
+div.busqueda{
+    box-shadow:1px 1px 10px rgba(0, 0, 0, 0.63);
+    height: 650px;
+    overflow: scroll;
+}
+
+div.info_izq{
+    display: block;
+    padding: 7px 7px 10px;
+}
+
+div.muestra_user{
+    display: inline-flex;
+}
+
+p.name{
+    padding-top: 9px;
+    padding-left: 12px;
+}
+
+input.buscar{
+    box-shadow:1px 1px 10px rgba(0, 0, 0, 0.63);
+}
+
+div.usuario{
+    display: flex;
+    padding: 10px 20px;
+}
+
+label.name_user{
+    padding: 13px 20px;
+}
+
+div.menu_dere{
+    width: 80%;
+    height: 649px;
+    padding-top: 5px;
+    padding-left: 0px;
+}
+
+div.entorno_mensajes{
+    background-color: azure;
+    height: 550px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.63);
+    padding-right: 0px;
+    overflow: scroll;
+}
+
+div.mensaje{
+    display: inline-flex;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.63);
+    height: 35px;
+}
+
+input.campo_mensaje{
+    width: 70%;
+}
+
+div.titulo h1{
+    margin-bottom: 0px;
+}
+
+div.mnsg_user{
+    background-color: azure;
+}
+
+.mnsg_error{
+    color: red;
+}
+
+.modal_registro{
+    display: none;
+}
