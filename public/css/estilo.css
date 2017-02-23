@@ -96,10 +96,48 @@ div.mnsg_user{
     background-color: azure;
 }
 
+div.desconexion{
+    background-color: azure;
+    color: darkslategrey;
+}
+
+
+
 .mnsg_error{
     color: red;
 }
 
 .modal_registro{
     display: none;
+}
+
+#cambio_footer{
+    margin-top: 0px;
+    background-color: azure;
+}
+
+#cambio_body{
+    background-color: azure;
+}
+
+#cambio_header{
+    background-color: azure;
+    margin-top: 0px;
+}
+
+#cambio_label{
+    background-color: azure; 
+}
+
+#cambio_titulo{
+    background-color: azure;
+    margin-left: 220px;
+}
+
+#cambio_input{
+    background-color: azure;
+}
+
+.modal-tittle{
+    border-color: azure;
 }
