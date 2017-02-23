@@ -36,7 +36,6 @@ $(document).ready(function(){
     
     
     socket.on('nombre_usuario',function(data){
-        nombre_usuario="";
         nombre_usuario = data;
         $('label.name_user').text(data);
         $('#ListaUser').append($(`<div class="info_izq"><div class="muestra_user"><div id="imagen_lista" class="avatar" style="background-image: url(./img/avatar_1.png)"></div><p class="name">${data}</p></div></div>`));
