@@ -3,18 +3,16 @@ $(document).ready(function(){
     var socket = io();
     var boton = $('.boton');
     var boton_limpiar = $('.boton_limpieza');
-    var nombre_usuario ="Fran";
-
-    console.log("Ejecucion");
-    socket.on('conectado',function(data){
-        $('.entorno_mensajes').append($(`<div class="mnsg_user">Se ha conectado ${nombre_usuario}</div>`)); 
+    
+    socket.on('usuario',function(data){
+        $('.entorno_mensajes').append($(`<div class="mnsg_user">Se ha conectado ${data}</div>`)); 
     });
     
     socket.on('desconexion',function(data){
-        $('.entorno_mensajes').append($(`<div class="desconectado">Se ha desconectado ${data}</div>`));
-    })
+        $('.entorno_mensajes').append($(`<div class="desconectado">Se ha desconectado ${data[0]}</div>`));
+    });
     
-    socket.on('mensaje_click',function(data){
+    socket.on('mensaje_click',function(nombre_usuario,data){
         if(data.length <= 0){
             $('.entorno_mensajes').append($(`<div class="mnsg_user mnsg_error">${nombre_usuario}: *Mensaje vacio*</div>`)); 
         }else{
@@ -32,11 +30,9 @@ $(document).ready(function(){
         $('.entorno_mensajes').empty();
     });
     
-    
-    
+
     
     socket.on('nombre_usuario',function(data){
-        nombre_usuario = data;
         $('label.name_user').text(data);
         $('#ListaUser').append($(`<div class="info_izq"><div class="muestra_user"><div id="imagen_lista" class="avatar" style="background-image: url(./img/avatar_1.png)"></div><p class="name">${data}</p></div></div>`));
     });
@@ -52,7 +48,8 @@ $(document).ready(function(){
     $('#cambio_input').keyup(function(event){
         if (event.keyCode == 13){
             socket.emit('nombre_usuario', $('#cambio_input').val());
-            $('#cambio_input').val('')
+            socket.emit('nombre', $('#cambio_input').val());
+            $('#cambio_input').val('');
             $('#myModal').modal('hide');
         }
     });

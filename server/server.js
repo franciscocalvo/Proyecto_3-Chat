@@ -6,13 +6,19 @@ var io = require('socket.io')(http);
 
 app.use(express.static(path.join(__dirname,'../public')));
 
+var coleccionUsuario = {};
 
 io.on('connection',function(socket){
-    console.log("user connect");
-    socket.broadcast.emit('conectado');
+    
+    
+    socket.on('nombre',function(data){
+        coleccionUsuario[socket.id] = [data,"estado"];
+        socket.broadcast.emit('usuario',coleccionUsuario[socket.id][0]);
+        
+    })
     
     socket.on('mensaje_click',function(data){
-        io.emit('mensaje_click',data);
+        io.emit('mensaje_click',coleccionUsuario[socket.id][0],data);
     });
     
     
@@ -20,9 +26,14 @@ io.on('connection',function(socket){
         io.emit('nombre_usuario',data); 
     });
     
+    socket.on('nombre',function(data){
+        io.emit('nombre',data); 
+    });
+    
     socket.on('disconnect',function(){
         console.log("user disconnect");
-        io.emit('desconexion', socket.id);
+        socket.broadcast.emit('desconexion',coleccionUsuario[socket.id]);
+        delete coleccionUsuario[socket.id];
     });
 
 });
