@@ -1,3 +1,4 @@
+/*Empizo a poner comentarios porque me estoy perdiendo en mi propio código*/
 var express = require('express');
 var app = express();
 var path = require('path');
@@ -36,6 +37,7 @@ io.on('connection',function(socket){
         console.log("user disconnect");
         socket.broadcast.emit('desconexion',coleccionUsuario[socket.id]);
         delete coleccionUsuario[socket.id];
+        socket.broadcast.emit('desconexion_maquetacion',coleccionUsuario);
     });
 
 });

@@ -14,6 +14,16 @@ $(document).ready(function(){
         $('.entorno_mensajes').append($(`<div class="desconectado">Se ha desconectado ${data[0]}</div>`));
     });
     
+    socket.on('desconexion_maquetacion',function(data){
+        $('#ListaUser').empty();
+        for(var llave in data){
+            if(llave != socket.id){
+                console.log(data[llave][0]);
+                $('#ListaUser').append($(`<div class="info_izq"><div class="muestra_user"><div id="imagen_lista" class="avatar" style="background-image: url(./img/avatar_1.png)"></div><p class="name">${data[llave][0]}</p><p class="estado">Estoy</p></div></div>`));
+            }
+        }
+    })
+    
     socket.on('mensaje_click',function(nombre_usuario,data){
         if(data.length <= 0){
             $('.entorno_mensajes').append($(`<div class="mnsg_user mnsg_error">${nombre_usuario}: *Mensaje vacio*</div>`)); 
