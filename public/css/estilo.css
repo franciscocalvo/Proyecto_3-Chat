@@ -37,8 +37,13 @@ div.busqueda{
 }
 
 div.info_izq{
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.63);
     display: block;
     padding: 7px 7px 10px;
+}
+
+div.info_izq:hover{
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.63);
 }
 
 div.muestra_user{
@@ -46,8 +51,14 @@ div.muestra_user{
 }
 
 p.name{
-    padding-top: 9px;
+    padding-top: 10px;
     padding-left: 12px;
+    height: 12px;
+}
+
+p.estado{
+    color: black;
+    padding-top: 26px;
 }
 
 input.buscar{

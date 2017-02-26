@@ -8,6 +8,8 @@ $(document).ready(function(){
         $('.entorno_mensajes').append($(`<div class="mnsg_user">Se ha conectado ${data}</div>`)); 
     });
     
+    /*Cuando recibo la respuesta del evento disconnect, genero un div con el nombre del usuario que se ha desconectado*/
+    
     socket.on('desconexion',function(data){
         $('.entorno_mensajes').append($(`<div class="desconectado">Se ha desconectado ${data[0]}</div>`));
     });
@@ -34,7 +36,17 @@ $(document).ready(function(){
     
     socket.on('nombre_usuario',function(data){
         $('label.name_user').text(data);
-        $('#ListaUser').append($(`<div class="info_izq"><div class="muestra_user"><div id="imagen_lista" class="avatar" style="background-image: url(./img/avatar_1.png)"></div><p class="name">${data}</p></div></div>`));
+
+    });
+    
+    socket.on('maquetacion',function(data){
+        $('#ListaUser').empty();
+        for(var key in data){
+            if(key != socket.id){
+                console.log(data[key][0]);
+                $('#ListaUser').append($(`<div class="info_izq"><div class="muestra_user"><div id="imagen_lista" class="avatar" style="background-image: url(./img/avatar_1.png)"></div><p class="name">${data[key][0]}</p><p class="estado">Estoy</p></div></div>`));
+            }
+        }
     });
     
     $('#texto').keyup(function(event){
@@ -44,7 +56,7 @@ $(document).ready(function(){
        } 
     });
     
-        
+     /*Aquí es donde se captura el nombre del usuario(Solo al pulsar Enter)*/   
     $('#cambio_input').keyup(function(event){
         if (event.keyCode == 13){
             socket.emit('nombre_usuario', $('#cambio_input').val());
