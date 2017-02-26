@@ -25,16 +25,27 @@
         <!-- Modal content-->
         <div class="modal-content">
           <div id="cambio_header" class="modal-header">
-            <h4 id="cambio_titulo" class="modal-title">WhatsApp Web</h4>
+            <h4 id="cambio_titulo" class="modal-title">Next-Chat</h4>
           </div>
           <div id="cambio_body" class="modal-body">
             <label id="cambio_label" for="username">Introduce tu nombre de usuario</label>
-            <input id="cambio_input" type="text" id="username" size="35" placeholder="Nombre usuario">
+            <input id="cambio_input_nombre" type="text" id="username" size="35" placeholder="Nombre usuario">
           </div>
           <div id="cambio_body" class="modal-body">
-            <label id="cambio_label" for="username">Introduce tu nombre de estado</label>
-            <input id="cambio_input" type="text" id="username" size="35" placeholder="Estado">
+            <label id="cambio_label" for="username">Introduce de estado</label>
+            <input id="cambio_input_estado" type="text" id="username" size="35" placeholder="Estado">
           </div>
+          <label class="Avatares">
+             <input type="radio" name="icono" value="./img/avatar_1.png" checked id="radio-default"/>
+             <div id="imagen_modal_1" class="avatar" style="background-image: url(./img/avatar_1.png)"></div>
+             
+             <input type="radio" name="icono" value="/img/avatar_2.png" />
+             <div id="imagen_modal_2"  class="avatar" style="background-image: url(./img/avatar_2.png)"></div>
+             
+             <input type="radio" name="icono" value="/img/avatar_3.png" />
+             <div id="imagen_modal_3"  class="avatar" style="background-image: url(./img/avatar_3.png)"></div>
+             
+          </label>
           <div id="cambio_footer" class="modal-footer">
             <button id="boton_modal" type="button" class="btn btn-default" data-dismiss="modal">Aceptar</button>
           </div>
@@ -45,7 +56,7 @@
     
    <div class="row">
        <div class="col-md-12 usuario">
-           <div class="avatar" style="background-image: url(./img/avatar_1.png)"></div>
+           <div id="icono_perfil" class="avatar"></div>
            <label class="name_user"></label>
        </div>
    </div>
@@ -70,5 +81,4 @@
     </div>
 </body>
 </html>
-
 

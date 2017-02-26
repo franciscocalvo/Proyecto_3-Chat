@@ -13,8 +13,9 @@ io.on('connection',function(socket){
     
     /*Cuando recibo el nombre del usuario del modal, lo agrego al diccionario de usuarios usando de clave la id del socket que está conectado en el momento*/
     
-    socket.on('nombre',function(data){
-        coleccionUsuario[socket.id] = [data,"estado"];
+    socket.on('nombre',function(data, estado, imagen){
+        coleccionUsuario[socket.id] = [data, estado, imagen];
+        console.log(coleccionUsuario);
         
         /*Mando a todos (menos a mi), el nombre del socket actual para el mensaje que informa de la coenxion de un usuario*/
         socket.broadcast.emit('usuario',coleccionUsuario[socket.id][0]);
@@ -27,8 +28,8 @@ io.on('connection',function(socket){
     });
     
     /*Envio el nombre del usuario con un evento diferente(para evitar lios), y genero el icocno, el nombre y la informacion del usuario en el menu de usuarios*/
-    socket.on('nombre_usuario',function(data){
-        socket.emit('nombre_usuario',data);
+    socket.on('nombre_usuario',function(data, icono){
+        socket.emit('nombre_usuario',data,icono);
     });
     
     

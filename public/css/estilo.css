@@ -13,13 +13,33 @@ div.avatar {
     background-repeat: no-repeat;
     background-position: 50%;
     border-radius: 50%;
-    background-size: 79% auto;
+    background-size: 80% auto;
     box-shadow: 1px 1px 1px;
+}
+
+div#icono_perfil{
+    background-size: 50% auto !important;
+    background-repeat: no-repeat !important;
 }
 
 div#imagen_lista{
     height: 35px;
     width: 35px;
+}
+
+div#imagen_modal_1{
+    width: 60px;
+    height: 60px;
+}
+
+div#imagen_modal_2{
+    width: 60px;
+    height: 60px;
+}
+
+div#imagen_modal_3{
+    width: 60px;
+    height: 60px;
 }
 
 div.menu_izq{
@@ -39,6 +59,7 @@ div.busqueda{
 div.info_izq{
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.63);
     display: block;
+    height: 70px;
     padding: 7px 7px 10px;
 }
 
@@ -48,15 +69,17 @@ div.info_izq:hover{
 
 div.muestra_user{
     display: inline-flex;
+    width: 100%;
+    height: 100%;
 }
 
 p.name{
-    padding-top: 10px;
+    padding-top: 3px;
     padding-left: 12px;
     height: 12px;
 }
 
-p.estado{
+div.estado{
     color: black;
     padding-top: 26px;
 }
@@ -113,6 +136,12 @@ div.desconexion{
 }
 
 
+label.Avatares{
+    display: flex;
+    padding-left: 190px;
+    background-color: azure;
+}
+
 
 .mnsg_error{
     color: red;
@@ -145,7 +174,11 @@ div.desconexion{
     margin-left: 220px;
 }
 
-#cambio_input{
+#cambio_input_nombre{
+    background-color: azure;
+}
+
+#cambio_input_estado{
     background-color: azure;
 }
 
