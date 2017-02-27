@@ -26,7 +26,7 @@ io.on('connection',function(socket){
         io.emit('mensaje_click',coleccionUsuario[socket.id][0],data);
     });
     
-    /*Envio el nombre del usuario con un evento diferente(para evitar lios), y genero el icocno, el nombre y la informacion del usuario en el menu de usuarios*/
+    /*Envio el nombre del usuario con un evento diferente(para evitar lios), y genero el icono, el nombre y la informacion del usuario en el menu de usuarios*/
     socket.on('nombre_usuario',function(data, icono){
         socket.emit('nombre_usuario',data,icono);
     });

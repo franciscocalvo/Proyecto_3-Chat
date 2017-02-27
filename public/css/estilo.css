@@ -22,6 +22,10 @@ div#icono_perfil{
     background-repeat: no-repeat !important;
 }
 
+div.escritura{
+    
+}
+
 div#imagen_lista{
     height: 35px;
     width: 35px;
@@ -59,7 +63,7 @@ div.busqueda{
 div.info_izq{
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.63);
     display: block;
-    height: 70px;
+    height: 85px;
     padding: 7px 7px 10px;
 }
 

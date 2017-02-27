@@ -25,10 +25,13 @@ $(document).ready(function(){
     });
     
     socket.on('mensaje_click',function(nombre_usuario,data){
+        var hora_mensaje = new Date($.now());
         if(data.length <= 0){
-            $('.entorno_mensajes').append($(`<div class="mnsg_user mnsg_error">${nombre_usuario}: *Mensaje vacio*</div>`)); 
+            $('.entorno_mensajes').append($(`<div class="mnsg_user mnsg_error">${nombre_usuario}: *Mensaje vacio* (${hora_mensaje.getHours()}: ${hora_mensaje.getMinutes()})</div>`));
+            scrollAutomatico();
         }else{
-            $('.entorno_mensajes').append($(`<div class="mnsg_user">${nombre_usuario}: ${data}</div>`)); 
+            $('.entorno_mensajes').append($(`<div class="mnsg_user">${nombre_usuario}: ${data} (${hora_mensaje.getHours()}: ${hora_mensaje.getMinutes()})</div>`));
+            scrollAutomatico();
         };
     });
     
@@ -38,6 +41,7 @@ $(document).ready(function(){
         $('#texto').val('');
     });
     
+
     /*limpieza de pantalla(solo la del usuario)*/
     boton_limpiar.click(function(){
         $('.entorno_mensajes').empty();
@@ -46,6 +50,7 @@ $(document).ready(function(){
     /*Botón del modal*/
     $("#boton_modal").click(function(){
         if($('#cambio_input_nombre').val() !='' && $('#cambio_input_estado').val() !=''){
+            event.preventDefault();
             socket.emit('nombre_usuario', $('#cambio_input_nombre').val(),$('input[name=icono]:checked').val());
             socket.emit('nombre', $('#cambio_input_nombre').val(),$('#cambio_input_estado').val(),$('input[name=icono]:checked').val());
             $('#cambio_input_nombre').val('');
@@ -75,6 +80,7 @@ $(document).ready(function(){
     
     $('#texto').keyup(function(event){
        if (event.keyCode == 13){
+           event.preventDefault();
            socket.emit('mensaje_click', $('#texto').val());
            $('#texto').val(''); 
        } 
@@ -83,6 +89,7 @@ $(document).ready(function(){
      /*Aquí es donde se captura el nombre del usuario(Solo al pulsar Enter)*/   
     $("#cambio_input_nombre, #cambio_input_estado").keyup(function(event){
         if (event.keyCode == 13){
+            event.preventDefault();
             if($('#cambio_input_nombre').val() !='' && $('#cambio_input_estado').val() !=''){
                 socket.emit('nombre_usuario', $('#cambio_input_nombre').val(),$('input[name=icono]:checked').val());
                 socket.emit('nombre', $('#cambio_input_nombre').val(),$('#cambio_input_estado').val(),$('input[name=icono]:checked').val());
@@ -97,4 +104,10 @@ $(document).ready(function(){
     });
     
 
+    function scrollAutomatico(){
+        var container = $('.entorno_mensajes');
+        container.animate({"scrollTop": container[0].scrollHeight}, "slow");
+    }
+
+    
 });
