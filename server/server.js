@@ -15,8 +15,7 @@ io.on('connection',function(socket){
     
     socket.on('nombre',function(data, estado, imagen){
         coleccionUsuario[socket.id] = [data, estado, imagen];
-        console.log(coleccionUsuario);
-        
+    
         /*Mando a todos (menos a mi), el nombre del socket actual para el mensaje que informa de la coenxion de un usuario*/
         socket.broadcast.emit('usuario',coleccionUsuario[socket.id][0]);
          io.emit('maquetacion',coleccionUsuario);

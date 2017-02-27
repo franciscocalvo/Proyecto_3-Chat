@@ -32,6 +32,7 @@ $(document).ready(function(){
         };
     });
     
+    /*enviar mensaje*/
     boton.click(function(){
         socket.emit('mensaje_click', $('#texto').val());
         $('#texto').val('');
@@ -42,6 +43,15 @@ $(document).ready(function(){
         $('.entorno_mensajes').empty();
     });
     
+    /*Botón del modal*/
+    $("#boton_modal").click(function(){
+        socket.emit('nombre_usuario', $('#cambio_input_nombre').val(),$('input[name=icono]:checked').val());
+        socket.emit('nombre', $('#cambio_input_nombre').val(),$('#cambio_input_estado').val(),$('input[name=icono]:checked').val());
+        $('#cambio_input_nombre').val('');
+        $('#cambio_input_estado').val('');
+        $('#radio-default').prop("checked", true);
+        $('#myModal').modal('hide');
+    });
 
     
     socket.on('nombre_usuario',function(data,icono){
