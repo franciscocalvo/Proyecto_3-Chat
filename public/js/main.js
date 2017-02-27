@@ -45,12 +45,16 @@ $(document).ready(function(){
     
     /*Botón del modal*/
     $("#boton_modal").click(function(){
-        socket.emit('nombre_usuario', $('#cambio_input_nombre').val(),$('input[name=icono]:checked').val());
-        socket.emit('nombre', $('#cambio_input_nombre').val(),$('#cambio_input_estado').val(),$('input[name=icono]:checked').val());
-        $('#cambio_input_nombre').val('');
-        $('#cambio_input_estado').val('');
-        $('#radio-default').prop("checked", true);
-        $('#myModal').modal('hide');
+        if($('#cambio_input_nombre').val() !='' && $('#cambio_input_estado').val() !=''){
+            socket.emit('nombre_usuario', $('#cambio_input_nombre').val(),$('input[name=icono]:checked').val());
+            socket.emit('nombre', $('#cambio_input_nombre').val(),$('#cambio_input_estado').val(),$('input[name=icono]:checked').val());
+            $('#cambio_input_nombre').val('');
+            $('#cambio_input_estado').val('');
+            $('#radio-default').prop("checked", true);
+            $('#myModal').modal('hide'); 
+        }else{
+            return false;
+        }
     });
 
     
@@ -79,14 +83,17 @@ $(document).ready(function(){
      /*Aquí es donde se captura el nombre del usuario(Solo al pulsar Enter)*/   
     $("#cambio_input_nombre, #cambio_input_estado").keyup(function(event){
         if (event.keyCode == 13){
-            socket.emit('nombre_usuario', $('#cambio_input_nombre').val(),$('input[name=icono]:checked').val());
-            
-            socket.emit('nombre', $('#cambio_input_nombre').val(),$('#cambio_input_estado').val(),$('input[name=icono]:checked').val());
-            $('#cambio_input_nombre').val('');
-            $('#cambio_input_estado').val('');
-            $('#radio-default').prop("checked", true);
-            $('#myModal').modal('hide');
-        }
+            if($('#cambio_input_nombre').val() !='' && $('#cambio_input_estado').val() !=''){
+                socket.emit('nombre_usuario', $('#cambio_input_nombre').val(),$('input[name=icono]:checked').val());
+                socket.emit('nombre', $('#cambio_input_nombre').val(),$('#cambio_input_estado').val(),$('input[name=icono]:checked').val());
+                $('#cambio_input_nombre').val('');
+                $('#cambio_input_estado').val('');
+                $('#radio-default').prop("checked", true);
+                $('#myModal').modal('hide');
+            }else{
+                return false;
+            }
+        };
     });
     
 
